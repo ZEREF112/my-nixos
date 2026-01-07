@@ -46,7 +46,6 @@
   # ===============================
   # Sound (PipeWire)
   # ===============================
-  sound.enable = true;
 
   services.pipewire = {
     enable = true;
