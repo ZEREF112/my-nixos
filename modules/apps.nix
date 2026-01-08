@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # ===============================
@@ -16,8 +16,9 @@
   # ===============================
   programs.dms-shell = {
   enable = true;
-  quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
   package = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
+  quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
 
 
   systemd = {
