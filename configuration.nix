@@ -26,7 +26,7 @@
   time.timeZone = "Asia/Damascus";
 
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocales = [ "ar_SA.UTF-8" ];
+
 
 
   # ===============================
@@ -36,6 +36,8 @@
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
+
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
 
   # ===============================
   # XDG / Wayland Base
