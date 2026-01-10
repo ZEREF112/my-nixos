@@ -5,7 +5,7 @@
   # Imports
   # ===============================
   imports = [
-    ./etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   # ===============================
