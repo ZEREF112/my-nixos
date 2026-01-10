@@ -71,8 +71,6 @@
           # ===============================
           # User
           # ===============================
-          dms.enable = true;
-          dms.username = "fouad";
 
           users.users.fouad = {
             isNormalUser = true;

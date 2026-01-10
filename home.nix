@@ -26,8 +26,8 @@
   # DankMaterialShell
   ############################
   home.packages = [
-    inputs.dms.packages.${pkgs.system}.default
-    inputs.dms.packages.${pkgs.system}.quickshell
+    inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell
   ];
 
   home.sessionVariables = {
@@ -59,7 +59,7 @@
 
     Service = {
       ExecStart =
-        "${inputs.dms.packages.${pkgs.system}.quickshell}/bin/quickshell";
+        "${inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell}/bin/quickshell";
       Restart = "on-failure";
     };
 
