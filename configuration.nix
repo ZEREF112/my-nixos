@@ -5,7 +5,7 @@
   # Imports
   # ===============================
   imports = [
-    ./hardware-configuration.nix
+    ./etc/nixos/hardware-configuration.nix
   ];
 
   # ===============================
@@ -47,13 +47,6 @@
   # Sound (PipeWire)
   # ===============================
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
   security.rtkit.enable = true;
 

@@ -35,16 +35,18 @@
         ./configuration.nix
         ./modules/graphics.nix
         ./modules/services.nix
-        ./modules/apps.nix
+        ./modules/pkgs.nix
+        ./modules/programs.nix
 
         # DankMaterialShell (SYSTEM LEVEL)
-        dms.nixosModules.default
+        dms.nixosModules.dankMaterialShell
 
         # Home Manager
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.fouad = import ./home.nix;
         }
 
