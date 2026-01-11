@@ -44,7 +44,7 @@
   # ===============================
   services.xserver.enable = true;
   services.xserver.xkb.layout = "us";
-
+ #services.displayManager.sddm.wayland.enable = true
   # ===============================
   # Sound (PipeWire)
   # ===============================

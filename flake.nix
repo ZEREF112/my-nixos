@@ -19,7 +19,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
   };
 
   outputs = { self, nixpkgs, home-manager, dms, quickshell, zen-browser, ... }@inputs:
@@ -27,7 +32,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit inputs; };
 
@@ -41,15 +46,17 @@
         # DankMaterialShell (SYSTEM LEVEL)
         dms.nixosModules.dankMaterialShell
 
-        # Home Manager
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.backupFileExtension = "backup";
-          home-manager.users.fouad = import ./home.nix;
-        }
+          #===============================
+          # Home-Manager-Config
+          #===============================
+          home-manager.nixosModules.home-manager
+           {
+               home-manager.useGlobalPkgs = true;
+               home-manager.useUserPackages = true;
+               home-manager.extraSpecialArgs = { inherit inputs; };
+               home-manager.backupFileExtension = "backup";
+               home-manager.users.fouad = import ./home.nix;
+           }
 
         ({ config, pkgs, ... }: {
 

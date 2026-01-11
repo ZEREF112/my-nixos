@@ -7,9 +7,9 @@
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 
-  ############################
+  #===========================
   # Hyprland
-  ############################
+  #===========================
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -22,9 +22,9 @@
     force = true;
   };
 
-  ############################
+  #===========================
   # DankMaterialShell
-  ############################
+  #===========================
   home.packages = [
     inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell
@@ -39,18 +39,18 @@
     __GL_VRR_ALLOWED = "1";
   };
 
-  ############################
+  #===========================
   # XDG Portal
-  ############################
+  #===========================
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
     config.common.default = "*";
   };
 
-  ############################
+  #===========================
   # Quickshell service
-  ############################
+  #===========================
   systemd.user.services.quickshell = {
     Unit = {
       Description = "Quickshell (DMS)";
